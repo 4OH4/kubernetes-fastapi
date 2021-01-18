@@ -2,7 +2,7 @@ from fastapi import APIRouter
 
 from service.core.models.output import MessageOutput
 from service.core.models.input import MessageInput
-from service.core.logic.business_logic import my_function
+from service.core.logic.business_logic import run_prime_factor_calculation
 
 router = APIRouter()
 
@@ -27,4 +27,12 @@ def hello_endpoint(inputs: MessageInput):
 
     """
 
-    return {"message": "Hello, world!"}
+    n, largest_prime_factor, elapsed_time = run_prime_factor_calculation()
+
+    return {
+        "message1": "Hello, world!",
+        "message2": f"The largest prime factor of {n} is {largest_prime_factor}. Calculation took {elapsed_time:0.3f} seconds.",
+        "n": n,
+        "largest_prime_factor": largest_prime_factor,
+        "elapsed_time": elapsed_time,
+    }

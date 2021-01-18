@@ -37,4 +37,8 @@ spec:
           image: 4oh4/kubernetes-fastapi:1.0.0
           ports:
             - containerPort: 8080
-          imagePullPolicy: Always
+          imagePullPolicy: Alwaysresources:
+          # You must specify requests for CPU to autoscale
+          # based on CPU utilization
+          requests:
+            cpu: "250m"
