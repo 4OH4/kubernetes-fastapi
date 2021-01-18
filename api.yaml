@@ -1,0 +1,40 @@
+# kubernetes-fastapi LoadBalancer Service
+# Enables the pods in a deployment to be accessible from outside the cluster
+apiVersion: v1
+kind: Service
+metadata:
+  name: kf-api-svc
+spec:
+  selector:
+    app: kf-api
+  ports:
+    - protocol: "TCP"
+      port: 8080
+      targetPort: 8080
+  type: LoadBalancer
+
+---
+# kf-api Deployment
+# Defines the deployment of the app running in a pod on any worker node
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kf-api
+  labels:
+    app: kf-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kf-api
+  template:
+    metadata:
+      labels:
+        app: kf-api
+    spec:
+      containers:
+        - name: kf-api
+          image: 4oh4/kubernetes-fastapi:1.0.0
+          ports:
+            - containerPort: 8080
+          imagePullPolicy: Always
