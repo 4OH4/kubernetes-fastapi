@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-from mangum import Mangum
 
 from service.api.api_v1.api import router as api_router
 from service.core.config import API_V1_STR, PROJECT_NAME
@@ -25,6 +24,3 @@ def pong():
 
     """
     return {"ping": "pong!"}
-
-
-handler = Mangum(app, enable_lifespan=False)
