@@ -12,7 +12,6 @@ To run (in isolation), either:
 
 Run from active Python environment using `uvicorn`:
 
-    pip install uvicorn
     pip install -r requirements.txt
     uvicorn service.main:app --host 0.0.0.0 --port 8080 --reload
 
@@ -93,3 +92,8 @@ Use `locust` to simulate a high load on the API
     gcloud container clusters delete my-cluser-name
 
 ** Check all resources have been deleted in the console - if in doubt, delete the project as well **
+
+## Acknowledgements
+
+Inspiration and code for FastAPI setup:
+[How to continuously deploy a fastAPI to AWS Lambda with AWS SAM](https://iwpnd.pw/articles/2020-01/deploy-fastapi-to-aws-lambda).
