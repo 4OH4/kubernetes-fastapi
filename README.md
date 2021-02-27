@@ -1,10 +1,8 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 # kubernetes-fastapi
 
-Barebones Python FastAPI in Kubernetes
-
-Built on fastapi-aws-lambda-example (MIT License):
-
-- https://iwpnd.pw/articles/2020-01/deploy-fastapi-to-aws-lambda
+Template for a Python FastAPI with Dockerfile and configuration for Kubernetes
 
 ## Development setup
 
