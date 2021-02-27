@@ -53,12 +53,12 @@ Follow the steps in this section if deploying to Google Cloud GKE, or skip if de
 
 Create a cluster and get credentials for `kubectl`:
 
-    gcloud container clusters create my-cluser-name --num-nodes=3
-    gcloud container clusters get-credentials my-cluser-name
+    gcloud container clusters create my-cluster-name --num-nodes=3
+    gcloud container clusters get-credentials my-cluster-name
 
 ## Kubernetes deployment
 
-    kubectl apply -f api_deployment.yaml
+    kubectl apply -f api.yaml
 
 If working locally, e.g. using `minikube`, use port forwarding to expose the service:
 
@@ -66,7 +66,7 @@ If working locally, e.g. using `minikube`, use port forwarding to expose the ser
 
 To scale the deployment, apply a HorizontalPodAutoscaler. Either:
 
-    kubectl apply -f autoscale.yml
+    kubectl apply -f autoscale.yaml
 
 or:
 
@@ -89,7 +89,7 @@ Use `locust` to simulate a high load on the API
 
 ## Google Cloud clean-up
 
-    gcloud container clusters delete my-cluser-name
+    gcloud container clusters delete my-cluster-name
 
 ** Check all resources have been deleted in the console - if in doubt, delete the project as well **
 
